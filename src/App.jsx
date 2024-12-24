@@ -1,6 +1,8 @@
 import Card from "./components/Card";
 import TextExpander from "./components/TextExpander";
 import DateCounter from "./components/DateCounter";
+import StarRating from "./components/StartRating";
+import bmiCalculater from "./components/bmiCalculater";
 
 const appStyle = {
   display: "flex",
@@ -18,10 +20,9 @@ function App() {
     <div style={appStyle}>
       <Card />
       <TextExpander />
-
-      <div>
-        <DateCounter></DateCounter>
-      </div>
+      <DateCounter />
+      <StarRating />
+      <bmiCalculater />
     </div>
   );
 }

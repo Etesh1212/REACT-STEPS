@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "../style/DateCounter.module.css";
+import style from "../style/DateCounter.module.css";
 
 const today = new Date();
 
