@@ -1,10 +1,18 @@
 import { useState } from "react";
-import style from "../style/DateCounter.module.css";
+import styles from "../style/DateCounter.module.css";
 
 const today = new Date();
 
 function isNumber(str) {
   return !isNaN(Number(str));
+}
+
+function getPrefix(dayCount) {
+  let prefix = "";
+  if (dayCount === "0" || dayCount === "-") prefix = "Today is ";
+  else if (+dayCount > 0) prefix = `${+dayCount} days after `;
+  else if (+dayCount < 0) prefix = `${+dayCount * -1} days before `;
+  return prefix;
 }
 
 function formateDate(date) {
@@ -22,27 +30,13 @@ function addDays(date, days) {
   return newDate;
 }
 
-// function getprefix(dayCount) {
-//   if (dayCount === "0" || dayCount === "-") prefix = "Today is ";
-//   else if (+dayCount > 0) prefix = `${+dayCount} days after `;
-//   else if (+dayCount < 0) prefix = `${+dayCount * -1} days before `;
-
-//   return dayCount;
-// }
-
 function DateCounter() {
   const [step, setStep] = useState(1);
   const [dayCount, setDayCount] = useState("0");
 
-  //derived state
-
+  // Derived State
   const currentDate = addDays(today, Number(dayCount === "-" ? 0 : dayCount));
-  // const prefix = getprefix(dayCount);
-
-  let prefix = "";
-  if (dayCount === "0" || dayCount === "-") prefix = "Today is ";
-  else if (+dayCount > 0) prefix = `${+dayCount} days after `;
-  else if (+dayCount < 0) prefix = `${+dayCount * -1} days before `;
+  const prefix = getPrefix(dayCount);
 
   function handleReset() {
     setStep(1);
@@ -97,9 +91,7 @@ function DateCounter() {
       </div>
 
       <p className={styles.txt}>
-        {" "}
-        {prefix}: {formateDate(currentDate)}
-        {/* {formateDate(addDays(today, Number(dayCount === "-" ? 0 : dayCount)))} */}
+        {prefix} : {formateDate(currentDate)}
       </p>
       <button className={styles.btn} onClick={handleReset}>
         Reset
