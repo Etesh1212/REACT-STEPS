@@ -3,6 +3,8 @@ import Card from "./components/Card";
 import DateCounter from "./components/DateCounter";
 import StarRating from "./components/StarRating";
 import TextExpander from "./components/TextExpander";
+import AccordionV2 from "./components/AccordionV2";
+import AccordionV3 from "./components/AccordionV3";
 
 import "./index.css";
 
@@ -53,6 +55,9 @@ function App() {
       </div>
 
       <Accordion contents={accordionContents} color="#2f9e44" />
+
+      <AccordionV2 contents={accordionContents} color="#2f9e44" />
+      <AccordionV3 contents={accordionContents} color="#2f9e44" />
     </div>
   );
 }

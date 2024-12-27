@@ -38,6 +38,7 @@
   cursor: pointer;
   transition: all 0.2s;
 } */
+
 .row h3:hover {
   background-color: rgba(128, 128, 128, 0.25);
 }
